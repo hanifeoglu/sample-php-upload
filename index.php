@@ -9,7 +9,7 @@
 
             <tr>
                 <td>Files</td>
-                <td><input type="file" name="image" /></td>
+                <td><input type="file" name="fileToUpload" /></td>
             </tr>
 
             <tr>
