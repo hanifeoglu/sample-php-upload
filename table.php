@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="css/custom.css">
 <?php
+include_once "layout_header.php";
 //get url in files name
 $url = $_GET["FilesName"];
 
@@ -11,7 +11,7 @@ $lines = explode("\n", $file);
 //unset($lines[0]);
 
 //start table here
-echo '<table>';
+echo '<table class=\'table table-hover table-responsive table-bordered\'>';
 foreach ($lines as $key => &$line) {
     echo '<tr>';
     $line = explode(" ", $line);
@@ -26,6 +26,5 @@ foreach ($lines as $key => &$line) {
 }
 echo '</table>'; // end table
 
-
-
+include_once "layout_footer.php";
 ?>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once "layout_header.php";
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $filename = basename($_FILES["fileToUpload"]["name"]);
@@ -20,8 +21,8 @@ if(isset($_POST["$_FILES"])) {
 if (file_exists($target_file)) {
     echo "Sorry, file already exists.".'</br>';
     $_SESSION['message'] = 'Sorry, file already exists!';
-    header("Refresh:5; url=form.php");
-    echo 'You\'ll be redirected in about 5 secs. If not, click <a href="form.php">here</a>.';
+    header("Refresh:5; url=index.php");
+    echo 'You\'ll be redirected in about 5 secs. If not, click <a href="index.php">here</a>.';
     $uploadOk = 0;
     exit;
 }
@@ -29,8 +30,8 @@ if (file_exists($target_file)) {
 if ($_FILES["fileToUpload"]["size"] > 500000) {
     echo "Sorry, your file is too large.".'</br>';
     $_SESSION['message'] = 'Sorry, your file is too large.';
-    header("Refresh:5; url=form.php");
-    echo 'You\'ll be redirected in about 5 secs. If not, click <a href="form.php">here</a>.';
+    header("Refresh:5; url=index.php");
+    echo 'You\'ll be redirected in about 5 secs. If not, click <a href="index.php">here</a>.';
 
     $uploadOk = 0;
     exit;
@@ -40,8 +41,8 @@ if($imageFileType != "xls" && $imageFileType != "xlsx" && $imageFileType != "csv
     && $imageFileType != "doc" ) {
     echo "Sorry, only xls, xlsx, csv & doc files are allowed.".'</br>';
     $_SESSION['message'] = 'Sorry, only xls, xlsx, csv & doc files are allowed.';
-    header("Refresh:5; url=form.php");
-    echo 'You\'ll be redirected in about 5 secs. If not, click <a href="form.php">here</a>.';
+    header("Refresh:5; url=index.php");
+    echo 'You\'ll be redirected in about 5 secs. If not, click <a href="index.php">here</a>.';
     $uploadOk = 0;
     exit;
 }
@@ -55,7 +56,7 @@ if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.".'</br>';
     $_SESSION['message'] = 'Sorry, your file was not uploaded.';
     header("Refresh:5; url=form.php");
-    echo 'You\'ll be redirected in about 5 secs. If not, click <a href="form.php">here</a>.';
+    echo 'You\'ll be redirected in about 5 secs. If not, click <a href="index.php">here</a>.';
     exit;
 // if everything is ok, try to upload file
 } else {
@@ -67,8 +68,9 @@ if ($uploadOk == 0) {
     } else {
         echo "Sorry, there was an error uploading your file.".'</br>';
         $_SESSION['message'] = 'Sorry, there was an error uploading your file.';
-        header("Refresh:5; url=form.php");
-        echo 'You\'ll be redirected in about 5 secs. If not, click <a href="form.php">here</a>.';
+        header("Refresh:5; url=index.php");
+        echo 'You\'ll be redirected in about 5 secs. If not, click <a href="index.php">here</a>.';
     }
 }
+include_once "layout_footer.php";
 ?>
